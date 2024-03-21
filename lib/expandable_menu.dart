@@ -134,14 +134,15 @@ class ExpandableMenuState extends State<ExpandableMenu>
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    return Column(
       children: [
         Spacer(
           key: _spacerKey,
         ),
         Container(
           clipBehavior: Clip.antiAlias,
-          width: _width * _containerProgress,
+          // width: _width * _containerProgress,
+          height: _height * _containerProgress, 
           constraints:
               BoxConstraints(minWidth: widget.width, minHeight: widget.height),
           decoration: BoxDecoration(
@@ -177,7 +178,7 @@ class ExpandableMenuState extends State<ExpandableMenu>
                       ? TextDirection.ltr
                       : TextDirection.rtl,
                   child: ListView(
-                    scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.vertical, // Expand vertically
                     children: _listWidget,
                   ),
                 ),
